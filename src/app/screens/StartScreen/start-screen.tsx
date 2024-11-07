@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { View } from "react-native";
+import { useNavigation } from "@react-navigation/native"; // Import useNavigation
 import { Layout } from "@app/layouts/layout";
 import DotIndicator from "@shared/ui/DotIndicator/dot-indicator";
 import MyTouchableOpacity from "@shared/ui/MyTouchableOpacity/my-touchable-opacity";
@@ -30,11 +31,14 @@ const texts = [
 
 export const StartScreen = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const navigation = useNavigation(); // Get the navigation object
 
   const handleNext = () => {
-    setCurrentIndex((prevIndex) =>
-      prevIndex === texts.length - 1 ? 0 : prevIndex + 1
-    );
+    if (currentIndex === texts.length - 1) {
+      navigation.navigate("Survey"); // Navigate to SurveyScreen on last slide
+    } else {
+      setCurrentIndex((prevIndex) => prevIndex + 1);
+    }
   };
 
   return (
@@ -50,7 +54,9 @@ export const StartScreen = () => {
           className="w-[270px] m-auto absolute bottom-4 h-[50px] bg-main flex items-center justify-center rounded-full"
           onPress={handleNext}
         >
-          <Text className="text-white">NEXT</Text>
+          <Text className="text-white">
+            {currentIndex === texts.length - 1 ? "GO TO SURVEY" : "NEXT"}
+          </Text>
         </MyTouchableOpacity>
         <DotIndicator totalDots={texts.length} currentIndex={currentIndex} />
       </View>
