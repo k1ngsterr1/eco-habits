@@ -9,7 +9,7 @@ import TreeIcon from "@shared/ui/Icons/tree-icon";
 export const SurveyScreen = () => {
   return (
     <Layout>
-      <View className="h-[80vh] relative flex items-center justify-center">
+      <View className="h-[80vh] relative flex items-center justify-start">
         <Text className="text-3xl text-dark text-center font-bold w-[280px]">
           Help Us Tailor Your
           <Text className="text-main font-bold"> Eco Plan!</Text>
