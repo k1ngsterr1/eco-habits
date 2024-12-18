@@ -1,11 +1,16 @@
 import * as React from "react";
 import Svg, { Path, Defs, LinearGradient, Stop } from "react-native-svg";
 
-function TreeIcon(props: any) {
+interface TreeIconProps {
+  width?: number;
+  height?: number;
+}
+
+function TreeIcon({ width = 69, height = 85, ...props }: TreeIconProps) {
   return (
     <Svg
-      width={69}
-      height={85}
+      width={width}
+      height={height}
       viewBox="0 0 69 85"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"

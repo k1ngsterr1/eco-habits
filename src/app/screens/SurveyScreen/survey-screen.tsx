@@ -5,8 +5,15 @@ import DotIndicator from "@shared/ui/DotIndicator/dot-indicator";
 import MyTouchableOpacity from "@shared/ui/MyTouchableOpacity/my-touchable-opacity";
 import Text from "@shared/ui/Text/text";
 import TreeIcon from "@shared/ui/Icons/tree-icon";
+import { useNavigation } from "@react-navigation/native";
 
 export const SurveyScreen = () => {
+  const navigation = useNavigation();
+
+  const handleNext = () => {
+    navigation.navigate("Home" as never);
+  };
+
   return (
     <Layout>
       <View className="h-[80vh] relative flex items-center justify-start">
@@ -20,7 +27,10 @@ export const SurveyScreen = () => {
             Let's start by learning more about your habit
           </Text>
         </View>
-        <MyTouchableOpacity className="w-[270px] m-auto absolute bottom-4 h-[50px] bg-main flex items-center justify-center rounded-full">
+        <MyTouchableOpacity
+          onPress={handleNext}
+          className="w-[270px] m-auto absolute bottom-4 h-[50px] bg-main flex items-center justify-center rounded-full"
+        >
           <Text className="text-white">Take the Survey</Text>
         </MyTouchableOpacity>
       </View>

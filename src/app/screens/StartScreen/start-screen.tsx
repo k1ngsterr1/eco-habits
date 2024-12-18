@@ -35,7 +35,7 @@ export const StartScreen = () => {
 
   const handleNext = () => {
     if (currentIndex === texts.length - 1) {
-      navigation.navigate("Survey"); // Navigate to SurveyScreen on last slide
+      navigation.navigate("Survey" as never); // Navigate to SurveyScreen on last slide
     } else {
       setCurrentIndex((prevIndex) => prevIndex + 1);
     }

@@ -1,19 +1,15 @@
 import { HomeScreen } from "@app/screens/HomeScreen/home-screen";
-import { StartScreen } from "@app/screens/StartScreen/start-screen";
-import { SurveyScreen } from "@app/screens/SurveyScreen/survey-screen";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
 // screens
 
 const Stack = createNativeStackNavigator();
 
-export const AuthStack = () => (
+export const MainStack = () => (
   <Stack.Navigator
     screenOptions={{ headerShown: false }}
-    initialRouteName="Start"
+    initialRouteName="Home"
   >
-    <Stack.Screen name="Start" component={StartScreen} />
-    <Stack.Screen name="Survey" component={SurveyScreen} />
     <Stack.Screen name="Home" component={HomeScreen} />
   </Stack.Navigator>
 );
